@@ -44,3 +44,4 @@ tmp/
 modules/
 /lib
 /data
+conf/application.conf
