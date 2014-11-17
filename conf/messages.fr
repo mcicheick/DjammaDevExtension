@@ -95,6 +95,7 @@ confirmPassword = Confirmation mot de passe
 required.user.confirmPassword = Confirmation mot de passe est obligatoire.
 update.user.password = &{%s} votre mot de passe a bien été mis à jour.
 password.reset = Changement de mot de passe
+user.notfound = Utilisateur introuvable
 
 # =============================== INFORMATIONS ===============================
 Informations = Informations

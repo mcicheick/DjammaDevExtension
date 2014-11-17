@@ -47,6 +47,7 @@ confirmPassword = Confirm password
 user.confirmPassword = Confirm password is required.
 update.user.password = &{%s} your password has been updated.
 password.reset = Reset Password
+user.notfound = User not found
 
 # =============================== INFORMATIONS ===============================
 Informations = Informations

@@ -204,7 +204,7 @@ public class Users extends Admin {
 		User user = User.findByUsername(username);
 		if (user == null) {
 			flash.error(Messages.get("user.notfound", username));
-			render(username);
+			render("@forgotPassword", username);
 		}
 		Message message;
 		HashMap<String, Object> args = new HashMap<String, Object>();
@@ -221,7 +221,7 @@ public class Users extends Admin {
 		} catch (Exception e) {
 			log.info(e.getMessage());
 			flash.error(Messages.get("email.error"));
-			render(username);
+			render("@forgotPassword", username);
 		}
 
 		try {
@@ -230,11 +230,15 @@ public class Users extends Admin {
 			message.save(); // On garde une trace du mail envoyé.
 			user.save(); // Tout s'est bien passé donc on enregistre le token du
 							// mot de passe.
-			Application.index();
+			Secure.login();
 		} catch (MalformedURLException e) {
 			log.info(e.getMessage());
 			flash.error(Messages.get("email.error"));
-			render(username);
+			render("@forgotPassword", username);
+		} catch (Throwable e) {
+			log.info(e.getMessage());
+			flash.error(Messages.get("email.error"));
+			render("@forgotPassword", username);
 		}
 	}
 
